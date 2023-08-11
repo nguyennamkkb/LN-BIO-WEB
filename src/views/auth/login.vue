@@ -1,5 +1,6 @@
 <template>
     <el-form
+      :label-position="labelPosition"
       label-width="100px"
       :model="formLabelAlign"
       style="max-width: 460px"
