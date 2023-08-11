@@ -181,13 +181,18 @@ const centerDialogVisible = ref(false);
 const fit = "cover";
 const url =
   "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg";
+
+  
 </script>
 
 
 <script lang="ts">
+
+import {getProfile } from "../api/profile"
 export default {
   data() {
     return {
+      param: "" ,
       list: [
         {
           id:1,
@@ -203,6 +208,19 @@ export default {
         },
       ],
     };
+  },  
+  created() {
+    this.param = String(this.$route.params.biourl)
+    this.getProfile()
   },
+  methods:{
+    getProfile: async function () {
+      const data = await getProfile(this.param);
+      console.log(data.data)
+      // if (data.data) {
+      //  console.log(data.data)
+      // }
+    },
+  }
 };
 </script>

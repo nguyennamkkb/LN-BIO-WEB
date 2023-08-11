@@ -1,18 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import ShareBioView from '../views/ShareBio.vue'
 import loginPage from '../views/auth/login.vue'
 
 const routes  =  [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/about',
-      name: 'about',
-
-      component: HomeView
+      path: '/bio/:biourl',
+      name: '/bio/:biourl',
+      component: ShareBioView
     },
     {
       path: '/login',
