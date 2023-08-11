@@ -1,5 +1,5 @@
 <template>
-  <div style="display: inline-block; width: 400px" class="main">
+  <div style="display: inline-block; width: 90%" class="main">
     <div class="header">
       <div class="demo-image">
         <el-image style="width: 150px; height: 150px; border-radius: 10px" :src="url" :fit="fit" />
@@ -50,7 +50,7 @@
    /* border-width: 0.5px; */
 /* } */
 .header {
-  width: 400px;
+  width: 100%;
   height: auto;
   display: inline-block;
   background-color:rgba(240, 240, 240,0.2);
@@ -74,7 +74,7 @@
 }
 
 .Mid {
-  width: 400px;
+  width: 100%;
   height: auto;
   padding-bottom: 30px;
   padding-top: 10px;
