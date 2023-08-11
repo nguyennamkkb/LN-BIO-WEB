@@ -5,23 +5,35 @@
         <el-image style="width: 150px; height: 150px; border-radius: 10px" :src="url" :fit="fit" />
       </div>
       <div class="lb-bio">
-        <p>Nguyeenx Luwong nam<br />Lap trinh vien</p>
+        <p>Nguyễn Lương Nam<br />Lap trinh vien</p>
       </div>
     </div>
     <div class="Mid">
+      <a style="color: navajowhite; font-weight: 700; text-shadow: 2px 2px 5px rgb(2, 1, 1);" @click="centerDialogVisible = true"> Chia sẻ qua QR</a>
       <div class="btn-share">
         <img src="/img/phone.png" class="img-btn-share"
           width="35" height="35">
-        <p class="lb-btn-share">0454545454</p>
+          <el-button type="success" :icon="Download" circle  style="position: absolute;right: 10px;"/>
+        <p class="lb-btn-share"><a href="tel:0454545454">0454545454</a></p>
       </div>
       <div class="btn-share">
+        
         <img src="/img/facebook.png" class="img-btn-share"
           width="35" height="35">
-        <p class="lb-btn-share">Nguyễn Lương Nam</p>
+        <p class="lb-btn-share"><a href="https://www.facebook.com/nguyennamkkb" target="_blank"> Nguyễn Lương Nam</a></p>
       </div>
      
     </div>
   </div>
+
+
+  <!-- dialog -->
+  <el-dialog v-model="centerDialogVisible" title="Quét để chia sẻ" height="auto" center>
+   <div style="display: flex; align-items: center;  justify-content: center;">
+    <img src="/img/qr.png"
+          width="200" height="200">
+   </div>
+  </el-dialog>
 </template>
 
 <style>
@@ -32,14 +44,14 @@
   height: 100vh;
 }
 
-.main {
+/* .main { */
    /* border-style: ridge;
    border-color: rgb(245, 164, 106); */
    /* border-width: 0.5px; */
-}
+/* } */
 .header {
   width: 400px;
-  height: 300px;
+  height: auto;
   display: inline-block;
   background-color:rgba(240, 240, 240,0.2);
   border-bottom-left-radius: 25px;
@@ -47,6 +59,7 @@
   color: red;
   font-weight: bold;
   font-size: large;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .demo-image {
@@ -83,7 +96,7 @@
   position: relative;
   display: flex;
   align-items: center;
-
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .img-btn-share {
@@ -108,10 +121,21 @@
   position: relative;
   width: auto;
   color: blue;
-
+}
+a{
+  text-decoration:none
 }
 </style>
 <script lang="ts" setup>
+import { ref } from 'vue'
+
+import {
+  Edit,
+  Download,
+  Share
+} from '@element-plus/icons-vue'
+
+const centerDialogVisible = ref(false)
 const fit = "cover";
 const url =
   "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg";
