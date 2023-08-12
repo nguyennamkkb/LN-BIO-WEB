@@ -11,7 +11,10 @@
     "start": "set \"GENERATE_SOURCEMAP=false\" &&  vite build &&  vite preview --host"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "element-plus": "^2.3.6",
+    "qrcode": "^1.5.3",
+    "qrcode.vue": "^3.4.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.2",
     "vuex": "^4.0.2"
@@ -27,6 +30,7 @@
     "unplugin-vue-components": "^0.25.1",
     "vite": "^4.3.9",
     "vite-plugin-javascript-obfuscator": "^3.0.2",
+    "vite-plugin-qrcode": "^0.2.2",
     "vite-ssg": "^0.22.2",
     "vue-tsc": "^1.8.0"
   },

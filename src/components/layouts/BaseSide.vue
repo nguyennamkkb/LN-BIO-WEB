@@ -1,5 +1,5 @@
 <template>
-  <el-menu
+  <!-- <el-menu
     active-text-color="#ffd04b"
     background-color="#545c64"
     class="el-menu-vertical-demo"
@@ -37,10 +37,10 @@
       <el-icon><setting /></el-icon>
       <span>Navigator Four</span>
     </el-menu-item>
-  </el-menu>
+  </el-menu> -->
 </template>
 
-<script lang="ts" setup>
+<!-- <script lang="ts" setup>
 import { ref } from "vue";
 import {
   Location,
@@ -56,4 +56,4 @@ const handleOpen = (key: string, keyPath: string[]) => {
 const handleClose = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
-</script>
+</script> -->
