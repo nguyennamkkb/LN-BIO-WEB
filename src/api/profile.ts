@@ -1,4 +1,4 @@
-import service from '../plugins/axios'
+import service from '../plugin/axios'
 const resource = '/share';
 
 

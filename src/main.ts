@@ -6,7 +6,6 @@ import ElementPlus from "element-plus";
 import "~/styles/index.scss";
 import "uno.css";
 import "element-plus/theme-chalk/src/message.scss";
-import '~/plugins'
 const app = createApp(App);
 app.use(router);
 app.use(ElementPlus);

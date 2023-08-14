@@ -233,6 +233,8 @@ const url =
 <script lang="ts">
 import { getProfile } from "../../api/profile";
 import QrcodeVue from "qrcode.vue";
+import authServive from '../../api/auth';
+import {Common} from '../../common/main';
 
 export default {
   components: {
@@ -274,7 +276,7 @@ export default {
   created() {
     this.param = String(this.$route.params.biourl);
     this.valueUrlQR = window.location.href;
-    this.getProfile();
+    // this.getProfile();
   },
   methods: {
     getProfile: async function () {
@@ -285,7 +287,12 @@ export default {
       // }
     },
     submitForm() {
-      alert("submit!"+JSON.stringify(this.ruleFormLogin));
+
+      // alert("submit!"+JSON.stringify(this.ruleFormLogin));
+      // this.ruleFormLogin.pass= Common.MD5(Common.key+this.ruleFormLogin.pass)
+      const res = authServive.login(this.ruleFormLogin)
+      console.log(res)
+
     },
     resetForm() {
       this.ruleFormLogin.pass = "";

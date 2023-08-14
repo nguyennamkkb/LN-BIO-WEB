@@ -1,7 +1,10 @@
-import service from '../plugins/axios'
+import service from '../plugin/axios'
 const resource = '/auth';
 
 
-export function login(playload:ObjLogin) {
-    return service.get(`${resource}/bio/`,playload)
+export default {
+
+    login(playload: any) {
+        return  service.post(`${resource}/signin`, playload)
+    }
 }
