@@ -62,118 +62,10 @@
 </template>
 
 <style>
-#app {
-  background-image: url("/img/pxfuel.jpg");
-  background-size: cover;
-  height: 100vh;
-}
 
-/* .main { */
-/* border-style: ridge;
-   border-color: rgb(245, 164, 106); */
-/* border-width: 0.5px; */
-/* } */
-.header {
-  width: 100%;
-  height: auto;
-  display: inline-block;
-  background-color: rgba(240, 240, 240, 0.2);
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  color: red;
-  font-weight: bold;
-  font-size: large;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.demo-image {
-  padding-top: 20px;
-}
-
-.lb-bio {
-  display: inline-block;
-  width: 60%;
-  /* height: 100px; */
-  word-wrap: break-word;
-}
-
-.Mid {
-  width: 100%;
-  height: auto;
-  padding-bottom: 30px;
-  padding-top: 10px;
-  /* display: inline-block; */
-  /* background-color: aquamarine; */
-}
-
-.btn-share {
-  display: inline-block;
-  /* padding: 5px; */
-  margin: auto;
-  margin-top: 10px;
-  height: auto;
-  width: 80%;
-  background-color: bisque;
-  border-radius: 15px;
-  border-color: aqua;
-  position: relative;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.img-btn-share {
-  width: 35px;
-  height: 35px;
-  padding: 10px;
-  float: left;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  left: 5px;
-  border-radius: 15px;
-}
-
-.lb-btn-share {
-  font-weight: bold;
-  float: left;
-  font-size: 20px;
-  margin-left: 55px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  width: auto;
-  color: blue;
-}
-.lb-btn-share a {
-  text-decoration: none;
-  margin-right: 5px;
-  width: auto;
-  word-wrap: break-word;
-}
-.qr-content {
-  /* position: relative; */
-  width: 200px;
-  height: 200px;
-  position: relative;
-}
-.qr-image {
-  position: absolute;
-}
-.qr-icon {
-  position: absolute;
-  top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: white;
-    margin: auto;
-    border-radius: 10px;
-} 
 </style>
 <script lang="ts" setup>
 import { ref } from "vue";
-import { Edit, Download, Share } from "@element-plus/icons-vue";
 
 const centerDialogVisible = ref(false);
 const fit = "cover";
@@ -182,7 +74,7 @@ const url =
 </script>
 
 <script lang="ts">
-import { getProfile } from "../api/profile";
+import profileService from "../api/profile";
 import QrcodeVue from "qrcode.vue";
 
 export default {
@@ -217,7 +109,8 @@ export default {
   },
   methods: {
     getProfile: async function () {
-      const data = await getProfile(this.param);
+      const data = await profileService.getProfile(this.param)
+      
       console.log(data.data);
       // if (data.data) {
       //  console.log(data.data)

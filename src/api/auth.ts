@@ -1,10 +1,7 @@
-import service from '../plugin/axios'
-const resource = '/auth';
-
+import {authRepository} from '../plugin/axios'
 
 export default {
-
-    login(playload: any) {
-        return  service.post(`${resource}/signin`, playload)
+    login(username: string, password: string){
+        return authRepository.login(username,password);
     }
 }

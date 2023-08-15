@@ -11,7 +11,7 @@
             label-width="120px"
             class="demo-ruleFormLogin"
           >
-          <el-form-item label="Số điện thoại" prop="">
+            <el-form-item label="Số điện thoại" prop="">
               <el-input
                 type="text"
                 v-model="ruleFormLogin.phone"
@@ -21,21 +21,18 @@
             <el-form-item label="Password" prop="">
               <el-input
                 type="password"
-                v-model="ruleFormLogin.pass"
+                v-model="ruleFormLogin.password"
                 autocomplete="off"
               ></el-input>
             </el-form-item>
 
             <el-form-item>
-              <el-button type="primary" @click="submitForm()"
-                >Submit</el-button
-              >
+              <el-button type="primary" @click="submitForm()">Submit</el-button>
               <el-button @click="resetForm()">Reset</el-button>
             </el-form-item>
           </el-form>
         </el-tab-pane>
         <el-tab-pane label="Đăng ký" name="second">
-          
           <p>Đăng ký</p>
           <el-form
             :model="ruleFormRegister"
@@ -44,7 +41,7 @@
             label-width="120px"
             class="demo-ruleFormLogin"
           >
-          <el-form-item label="Số điện thoại" prop="">
+            <el-form-item label="Số điện thoại" prop="">
               <el-input
                 type="text"
                 v-model="ruleFormRegister.phone"
@@ -80,7 +77,6 @@
               <el-button @click="resetFormRegister()">Reset</el-button>
             </el-form-item>
           </el-form>
-
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -110,31 +106,7 @@
 </template>
 
 <style>
-#app {
-  background-image: url("/img/pxfuel.jpg");
-  background-size: cover;
-  height: 100vh;
-}
 
-/* .main { */
-/* border-style: ridge;
-   border-color: rgb(245, 164, 106); */
-/* border-width: 0.5px; */
-/* } */
-.header {
-  padding: 10px;
-  margin: auto;
-  width: 100%;
-  height: auto;
-  display: inline-block;
-  background-color: rgba(240, 240, 240, 0.2);
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  color: red;
-  font-weight: bold;
-  font-size: large;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 
 .demo-image {
   padding-top: 20px;
@@ -231,10 +203,9 @@ const url =
 </script>
 
 <script lang="ts">
-import { getProfile } from "../../api/profile";
 import QrcodeVue from "qrcode.vue";
-import authServive from '../../api/auth';
-import {Common} from '../../common/main';
+import authServive from "../../api/auth";
+import { Common } from "../../common/main";
 
 export default {
   components: {
@@ -244,13 +215,13 @@ export default {
     return {
       ruleFormLogin: {
         phone: "",
-        pass: "",
+        password: "",
       },
-      ruleFormRegister:{
-        fullName:"",
-        phone:"",
-        address:"",
-        email:"",
+      ruleFormRegister: {
+        fullName: "",
+        phone: "",
+        address: "",
+        email: "",
         pass: "",
       },
       activeName: "first",
@@ -279,26 +250,22 @@ export default {
     // this.getProfile();
   },
   methods: {
-    getProfile: async function () {
-      const data = await getProfile(this.param);
-      console.log(data.data);
-      // if (data.data) {
-      //  console.log(data.data)
-      // }
-    },
     submitForm() {
+      this.ruleFormLogin.phone = "0358737373";
+      this.ruleFormLogin.password = "123456";
 
-      // alert("submit!"+JSON.stringify(this.ruleFormLogin));
-      // this.ruleFormLogin.pass= Common.MD5(Common.key+this.ruleFormLogin.pass)
-      const res = authServive.login(this.ruleFormLogin)
-      console.log(res)
-
+      authServive.login(this.ruleFormLogin.phone, this.ruleFormLogin.password).then((result) => {
+        console.log(result)
+      })
+      
+      
+      
     },
     resetForm() {
-      this.ruleFormLogin.pass = "";
+      this.ruleFormLogin.password = "";
       this.ruleFormLogin.phone = "";
     },
-    resetFormRegister(){
+    resetFormRegister() {
       this.ruleFormRegister.fullName = "";
       this.ruleFormRegister.phone = "";
       this.ruleFormRegister.email = "";
@@ -306,7 +273,7 @@ export default {
       this.ruleFormRegister.address = "";
     },
     submitFormRegister() {
-      alert("submit!"+JSON.stringify(this.ruleFormRegister));
+      alert("submit!" + JSON.stringify(this.ruleFormRegister));
     },
   },
 };

@@ -1,6 +1,4 @@
 import md5 from "md5";
-
-
 export class Common {
     
     static isAuth: boolean = true

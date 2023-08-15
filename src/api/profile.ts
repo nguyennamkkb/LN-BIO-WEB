@@ -1,7 +1,8 @@
-import service from '../plugin/axios'
+import {service} from '../plugin/axios'
 const resource = '/share';
 
-
-export function getProfile(id: string) {
-    return service.get(`${resource}/bio/`+id)
+export default {
+    getProfile(id: string) {
+        return  service.get(`${resource}/bio/`+id)
+    }
 }

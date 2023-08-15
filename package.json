@@ -11,7 +11,6 @@
     "start": "set \"GENERATE_SOURCEMAP=false\" &&  vite build &&  vite preview --host"
   },
   "dependencies": {
-    "@types/md5": "^2.3.2",
     "axios": "^1.4.0",
     "element-plus": "^2.3.6",
     "md5": "^2.3.0",
@@ -24,6 +23,7 @@
   },
   "devDependencies": {
     "@iconify-json/ep": "^1.1.10",
+    "@types/md5": "^2.3.2",
     "@types/node": "^20.3.1",
     "@vitejs/plugin-vue": "^4.2.3",
     "javascript-obfuscator": "^4.0.2",
