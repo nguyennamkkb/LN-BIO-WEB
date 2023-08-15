@@ -1,6 +1,11 @@
 import axios from "axios";
-import { json } from "stream/consumers";
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 
+const store = useStore()
+const getters = computed(() => {
+    return store.state.getters
+})
 const baseDomain = "http://127.0.0.1:4444/";
 const baseUrl = `${baseDomain}ln-bio-api`; // or `${baseDomain}/api/v1`
 
@@ -39,7 +44,9 @@ const authRepository = {
       }).then((result) => {
         console.log("asdasd:"+JSON.stringify(result.data))
         if (result.data.data != null && result.data.data.access_token != null) {
-          authToken = result.data.access_token; // Save the token
+          authToken = result.data.data.access_token; // Save the token
+          // getters.value.token = authToken
+
           status = true; // Login successful
         }
       }).catch((err) => {

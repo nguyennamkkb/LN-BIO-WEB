@@ -205,6 +205,7 @@ const url =
 <script lang="ts">
 import QrcodeVue from "qrcode.vue";
 import authServive from "../../api/auth";
+import profileService from "../../api/profile";
 import { Common } from "../../common/main";
 
 export default {
@@ -247,15 +248,20 @@ export default {
   created() {
     this.param = String(this.$route.params.biourl);
     this.valueUrlQR = window.location.href;
-    // this.getProfile();
+    
   },
   methods: {
+    getAll: async function () {
+      const data = await profileService.getAll()
+      console.log(data.data);
+    },
     submitForm() {
       this.ruleFormLogin.phone = "0358737373";
       this.ruleFormLogin.password = "123456";
 
       authServive.login(this.ruleFormLogin.phone, this.ruleFormLogin.password).then((result) => {
         console.log(result)
+        this.getAll();
       })
       
       

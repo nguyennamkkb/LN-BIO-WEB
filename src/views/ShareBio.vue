@@ -83,7 +83,7 @@ export default {
   },
   data() {
     return {
-      valueUrlQR: "https://example.com",
+      valueUrlQR: "",
       size: 200,
       param: "",
       list: [
@@ -110,12 +110,9 @@ export default {
   methods: {
     getProfile: async function () {
       const data = await profileService.getProfile(this.param)
-      
       console.log(data.data);
-      // if (data.data) {
-      //  console.log(data.data)
-      // }
     },
+   
   },
 };
 </script>
